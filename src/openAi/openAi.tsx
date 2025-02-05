@@ -17,9 +17,9 @@ export async function generateJSON(promptInput: string) {
   });
 
   //@ts-ignore
-  const API_KEY = result.apiKey;
+  const apiKey = result.apiKey;
   //@ts-ignore
-  const openai = new OpenAI({ apiKey: API_KEY });
+  const openai = new OpenAI({ apiKey ,  dangerouslyAllowBrowser: true  });
 
   try {
     console.log("Sending request to OpenAI...");

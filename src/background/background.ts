@@ -6,7 +6,7 @@ chrome.runtime.onInstalled.addListener(() => {
   if (tab.url && tab.url.includes("mail.google.com")){
     chrome.scripting.executeScript({
       target: { tabId: tabId },
-      files: ["content.tsx"]
+      files: ["content.js"]
     });
   }
   });
