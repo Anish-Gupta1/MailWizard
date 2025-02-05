@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "mAIl GENarator",
+  "name": "MailWizard",
   "version": "1.0",
-  "description": "A basic Chrome extension using React.",
+  "description": "MailWizard is your AI-powered email assistant that transforms the way you compose emails.✨📧",
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"

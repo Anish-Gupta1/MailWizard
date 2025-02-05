@@ -1,5 +1,5 @@
 {
-    "name": "chrome-extension-boilerplate",
+    "name": "mailwizard",
     "version": "1.0.0",
     "scripts": {
         "build": "webpack --mode production && tailwindcss -i ./src/styles/index.css -o ./dist/popup.css",
