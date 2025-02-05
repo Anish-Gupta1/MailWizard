@@ -16,14 +16,14 @@
       "js": ["content.js"]
     }
   ],
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting"
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "popup.js", "popup.css"], 
+      "matches": ["<all_urls>"]
+    }
   ],
-  "host_permissions": [
-    "https://mail.google.com/*"
-  ],
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://mail.google.com/*"],
   "icons": {
     "48": "icon.png",
     "128": "icon.png"

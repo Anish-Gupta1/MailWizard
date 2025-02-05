@@ -2,7 +2,7 @@
     "name": "chrome-extension-boilerplate",
     "version": "1.0.0",
     "scripts": {
-        "build": "webpack --mode production",
+        "build": "webpack --mode production && tailwindcss -i ./src/styles/index.css -o ./dist/popup.css",
         "watch": "webpack --watch --mode development"
     },
     "dependencies": {
