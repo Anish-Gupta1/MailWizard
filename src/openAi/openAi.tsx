@@ -25,7 +25,7 @@ export async function generateJSON(promptInput: string) {
     console.log("Sending request to OpenAI...");
     
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-2024-08-06",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",

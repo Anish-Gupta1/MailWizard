@@ -6,7 +6,6 @@ export const Popup: React.FC = () => {
   const [apikey, setApikey] = useState<string>("");
   const [isKeySaved, setIsKeySaved] = useState<boolean>(false);
 
-
   useEffect(() => {
     chrome.storage.local.get("apiKey", (result) => {
       if (result.apiKey) {
@@ -14,7 +13,6 @@ export const Popup: React.FC = () => {
       }
     });
   }, []);
-
 
   const handleSubmit = async () => {
     console.log("Saving API Key", apikey);
@@ -28,7 +26,6 @@ export const Popup: React.FC = () => {
     });
   };
 
-  // Reset API key
   const handleReset = () => {
     chrome.storage.local.remove("apiKey", () => {
       if (chrome.runtime.lastError) {
@@ -41,11 +38,10 @@ export const Popup: React.FC = () => {
   };
 
   return (
-    <div className="min-w-[300px] min-h-[200px] p-6 bg-gradient-to-br from-blue-500 to-purple-600 animate-gradient-x text-white">
+    <div className="min-w-[300px] min-h-[200px] p-6 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
       {!isKeySaved ? (
-        
         <div className="space-y-4">
-          <p className="text-sm text-center">
+          <p className="text-sm text-center text-gray-300">
             Paste your OpenAI API key below to get started.
           </p>
           <Textbox
@@ -56,12 +52,11 @@ export const Popup: React.FC = () => {
           />
         </div>
       ) : (
-        
         <div className="space-y-4 text-center">
-          <h1 className="text-2xl font-bold">Success!</h1>
+          <h1 className="text-2xl font-bold text-purple-400">Success!</h1>
           <button
             onClick={handleReset}
-            className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+            className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
           >
             Reset API Key
           </button>

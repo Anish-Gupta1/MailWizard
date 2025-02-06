@@ -5,6 +5,7 @@ interface TextboxProps {
   rows?: number;
   cols?: number;
   value: string;
+  disable?: boolean;
   onChange: (value: string) => void;
   onSubmit: () => void;
 }
@@ -14,25 +15,28 @@ const Textbox: React.FC<TextboxProps> = ({
   rows = 4,
   cols = 50,
   value,
+  disable,
   onChange,
-  onSubmit
+  onSubmit,
 }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-lg animate-fade-in">
-      
+    <div className="p-4 bg-gray-800 rounded-lg shadow-lg animate-fade-in">
       <textarea
-        className="w-full p-3 border text-black border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ease-in-out resize-none hover:shadow-md"
+        className={`w-full p-3 border ${
+          disable ? "text-gray-400" : "text-white"
+        } border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 ease-in-out resize-none hover:shadow-md bg-gray-700`}
         placeholder={placeholder}
         rows={rows}
         cols={cols}
         value={value}
+        disabled={disable}
         onChange={(e) => onChange(e.target.value)}
       />
 
-     
       <button
-        className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+        className="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
         onClick={onSubmit}
+        disabled={disable}
       >
         Submit
       </button>
