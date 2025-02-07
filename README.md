@@ -121,6 +121,7 @@ npm run build
     <p><i>Examplex of an automatically generated email</i></p>
   </details>
 </div>
+
 ---
 
 <div align="center">
