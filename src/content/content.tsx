@@ -3,14 +3,14 @@ import { createRoot } from "react-dom/client";
 import Textbox from "../components/Textbox";
 import { generateJSON, GmailComposeType } from "../openAi/openAi";
 import MailSetter from "../components/mailsetter";
-import '../styles/index.css';
+import "../styles/index.css";
 
 const styles = `
   .ai-button-container {
     position: absolute;
-    top: 10px;
+    top: 100px;
     right: 10px;
-    z-index: 1000;
+    z-index: 9999;
   }
 
   .ai-button {
@@ -89,6 +89,8 @@ const ExtensionComponent: React.FC = () => {
     chrome.storage.local.get("apiKey", (result) => {
       if (result.apiKey) {
         setIsKeyLoaded(true);
+      }else{
+        setIsKeyLoaded(false);
       }
     });
   }, [isPopupOpen]);
@@ -103,7 +105,7 @@ const ExtensionComponent: React.FC = () => {
           <div className="ai-popup" onClick={(e) => e.stopPropagation()}>
             {isKeyLoded ? (
               <Textbox
-                placeholder="Enter your prompt..."
+                placeholder="✨ Let the magic begin... What would you like to write?"
                 rows={4}
                 cols={40}
                 disable={isSubmit}
@@ -112,8 +114,29 @@ const ExtensionComponent: React.FC = () => {
                 onSubmit={handleSubmit}
               />
             ) : (
-              <div>
-                Please add your OpenAI API KEY in the MailWizard extension's popup to avail the feature.
+              <div className="ai-popup" onClick={(e) => e.stopPropagation()}>
+                <div className="flex items-center space-x-2 mb-2">
+                  <svg
+                    className="w-5 h-5 text-purple-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    />
+                  </svg>
+                  <span className="font-medium text-purple-400">
+                    Magic Key Required
+                  </span>
+                </div>
+                <p className="text-sm">
+                  Please add your OpenAI API key in the MailWizard extension's
+                  popup to unlock the magic of AI-powered email generation. ✨
+                </p>
               </div>
             )}
             {mailData && <MailSetter data={mailData} />}
@@ -124,12 +147,10 @@ const ExtensionComponent: React.FC = () => {
   );
 };
 
-
-
 const injectStyles = () => {
-  if (!document.querySelector('#mail-wizard-styles')) {
+  if (!document.querySelector("#mail-wizard-styles")) {
     const styleSheet = document.createElement("style");
-    styleSheet.id = 'mail-wizard-styles';
+    styleSheet.id = "mail-wizard-styles";
     styleSheet.textContent = styles;
     document.head.appendChild(styleSheet);
   }
@@ -144,16 +165,14 @@ const injectExtension = () => {
         if (node instanceof HTMLElement) {
           const composeBox = node.querySelector(composeBoxSelector);
           if (composeBox) {
-            // Find the compose box container
-            const composeContainer = composeBox.closest('.M9') as HTMLElement;
-            
-            // Only inject if there isn't already a button
-            if (composeContainer && 
-                !composeContainer.querySelector('.mail-wizard-root')) {
-              
-              // Set relative positioning on the container
-              composeContainer.style.position = 'relative';
-              
+            const composeContainer = composeBox.closest(".M9") as HTMLElement;
+
+            if (
+              composeContainer &&
+              !composeContainer.querySelector(".mail-wizard-root")
+            ) {
+              composeContainer.style.position = "relative";
+
               const container = document.createElement("div");
               composeContainer.appendChild(container);
 
@@ -166,7 +185,6 @@ const injectExtension = () => {
     });
   };
 
-
   const existingObserver = (window as any).mailWizardObserver;
   if (existingObserver) {
     existingObserver.disconnect();
@@ -174,13 +192,12 @@ const injectExtension = () => {
 
   const observer = new MutationObserver(handleNewComposeBox);
   (window as any).mailWizardObserver = observer;
-  
+
   observer.observe(document.body, {
     childList: true,
     subtree: true,
   });
 };
-
 
 injectStyles();
 injectExtension();
