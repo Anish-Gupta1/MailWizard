@@ -1,8 +1,8 @@
 <div align="center">
+  <img src="assets/mailwizard-logo.png" alt="MailWizard Logo" width="200"/>
   <h1>
     <img src="https://img.shields.io/badge/Mail-Wizard-blueviolet?style=for-the-badge&logo=gmail" alt="MailWizard" />
   </h1>
-
   <p>
     <img src="https://img.shields.io/badge/Gmail-Integration-red?style=flat-square&logo=gmail" alt="Gmail Integration"/>
     <img src="https://img.shields.io/badge/OpenAI-Powered-green?style=flat-square&logo=openai" alt="OpenAI Powered"/>
@@ -94,39 +94,33 @@ npm run build
 <div align="center">
   <h3>📸 Screenshots</h3>
 </div>
-
 <div align="center">
   <details>
     <summary><b>API Key Setup</b></summary>
-    <img src="screenshots/api-key-setup.png" alt="API Key Setup" width="600"/>
+    <img src="screenshots/api-key-setup.png" alt="API Key Setup" width="400"/>
     <p><i>Extension popup for setting up your OpenAI API key</i></p>
   </details>
-
   <details>
     <summary><b>Email Compose Integration</b></summary>
-    <img src="screenshots/compose-integration.png" alt="Email Compose Integration" width="600"/>
+    <img src="screenshots/compose-integration.png" alt="Email Compose Integration" width="400"/>
     <p><i>AI icon integrated into Gmail's compose window</i></p>
   </details>
-
   <details>
     <summary><b>AI Prompt Interface</b></summary>
-    <img src="screenshots/prompt-interface.png" alt="AI Prompt Interface" width="600"/>
+    <img src="screenshots/prompt-interface.png" alt="AI Prompt Interface" width="400"/>
     <p><i>Interface for entering your email generation prompt</i></p>
   </details>
-
   <details>
     <summary><b>Example Usage</b></summary>
-    <img src="screenshots/example-prompt.png" alt="Example Prompt" width="600"/>
+    <img src="screenshots/example-prompt.png" alt="Example Prompt" width="400"/>
     <p><i>Example of entering a prompt for birthday invitation</i></p>
   </details>
-
   <details>
     <summary><b>Generated Email</b></summary>
-    <img src="screenshots/generated-email.png" alt="Generated Email" width="600"/>
-    <p><i>Example of an automatically generated email</i></p>
+    <img src="screenshots/generated-email.png" alt="Generated Email" width="400"/>
+    <p><i>Examplex of an automatically generated email</i></p>
   </details>
 </div>
-
 ---
 
 <div align="center">
@@ -179,7 +173,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 </div>
 
 <div align="center">
-  <a href="https://github.com/yourusername">
+  <a href="https://github.com/Anish-Gupta1">
     <img src="https://img.shields.io/badge/GitHub-Profile-blue?style=for-the-badge&logo=github" alt="GitHub Profile"/>
   </a>
   <br/>
