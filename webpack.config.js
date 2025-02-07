@@ -26,6 +26,7 @@ module.exports = {
         use: [
           "style-loader",
           "css-loader",
+          'postcss-loader',
           {
             loader: "postcss-loader", // Add PostCSS loader
             options: {
