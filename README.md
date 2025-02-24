@@ -179,5 +179,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
   </a>
   <br/>
   <br/>
-  <i>Project Link: <a href="https://github.com/yourusername/mailwizard">https://github.com/yourusername/mailwizard</a></i>
+  <i>Project Link: <a href="https://github.com/Anish-Gupta1/MailWizard">https://github.com/Anish-Gupta1/MailWizard</a></i>
 </div>
