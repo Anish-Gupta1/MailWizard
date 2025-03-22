@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Textbox from "../components/Textbox";
-import { generateJSON, GmailComposeType } from "../openAi/openAi";
+import { generategptJSON } from "../openAi/openAi";
 import MailSetter from "../components/mailsetter";
 import "../styles/index.css";
+import { GmailComposeType } from "../zod/zod";
+import { generateclaudeJSON } from "../anthropic/claude";
+
 
 const styles = `
   .ai-button-container {
@@ -66,17 +69,20 @@ const ExtensionComponent: React.FC = () => {
   const [mailData, setMailData] = useState<GmailComposeType | null>(null);
   const [isSubmit, setIsSubmit] = useState(false);
   const [isKeyLoded, setIsKeyLoaded] = useState(false);
+  const [generateJSON, setGenerateJSON] = useState<typeof generategptJSON | typeof generateclaudeJSON>(generategptJSON);
 
   const handleSubmit = async () => {
     try {
       setIsSubmit(true);
       const data = await generateJSON(textValue);
-      setMailData(data);
+      if (data) {
+        setMailData(data);
+      }
     } catch (err) {
       console.error("Error generating mail data", err);
     }
   };
-
+  
   useEffect(() => {
     if (mailData) {
       setIsSubmit(false);
@@ -84,12 +90,17 @@ const ExtensionComponent: React.FC = () => {
       setIsPopupOpen(false);
     }
   }, [mailData]);
-
+  
   useEffect(() => {
     chrome.storage.local.get("apiKey", (result) => {
       if (result.apiKey) {
         setIsKeyLoaded(true);
-      }else{
+        if (result.apiKey.startsWith("sk-ant-")) {
+          setGenerateJSON(() => generateclaudeJSON);
+        } else {
+          setGenerateJSON(() => generategptJSON);
+        }
+      } else {
         setIsKeyLoaded(false);
       }
     });
@@ -134,7 +145,7 @@ const ExtensionComponent: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-sm">
-                  Please add your OpenAI API key in the MailWizard extension's
+                  Please add your OpenAI or Anthropic API key in the MailWizard extension's
                   popup to unlock the magic of AI-powered email generation. ✨
                 </p>
               </div>

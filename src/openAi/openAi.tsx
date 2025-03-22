@@ -1,16 +1,8 @@
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
-import { z } from "zod";
+import { GmailComposeSchema } from "../zod/zod";
 
-const GmailComposeSchema = z.object({
-  to: z.array(z.string().email()).nullable(),
-  bcc: z.array(z.string().email()).nullable(),
-  cc: z.array(z.string().email()).nullable(),
-  subject: z.string().nullable(),
-  description: z.string().nullable(),
-});
-
-export async function generateJSON(promptInput: string) {
+export async function generategptJSON(promptInput: string) {
   
   const result = await new Promise((resolve) => {
     chrome.storage.local.get("apiKey", resolve);
@@ -58,4 +50,3 @@ export async function generateJSON(promptInput: string) {
   }
 }
 
-export type GmailComposeType = z.infer<typeof GmailComposeSchema>;

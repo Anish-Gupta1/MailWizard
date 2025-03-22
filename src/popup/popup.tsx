@@ -42,7 +42,7 @@ export const Popup: React.FC = () => {
       {!isKeySaved ? (
         <div className="space-y-4">
           <p className="text-sm text-center text-gray-300">
-            Paste your OpenAI API key below to get started.
+            Paste your OpenAI or Anthropic API key below to get started.
           </p>
           <Textbox
             placeholder="API key ..."
