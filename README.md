@@ -50,17 +50,20 @@
 <div align="left">
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/yourusername/mailwizard.git
+git clone https://github.com/Anish-Gupta1/MailWizard.git
 cd mailwizard
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Build the extension:
+
 ```bash
 npm run build
 ```
@@ -70,7 +73,7 @@ npm run build
    - Enable "Developer mode" in the top right
    - Click "Load unpacked"
    - Select the `dist` folder from the project directory
-</div>
+   </div>
 
 ---
 
@@ -154,6 +157,7 @@ npm run build
 <div align="left">
 
 Your OpenAI API key is stored securely in the browser's local storage. Always keep your API key private and never share it with others.
+
 </div>
 
 ---
@@ -165,6 +169,7 @@ Your OpenAI API key is stored securely in the browser's local storage. Always ke
 <div align="left">
 
 This project is licensed under the MIT License - see the LICENSE file for details
+
 </div>
 
 ---
