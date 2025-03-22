@@ -23,9 +23,11 @@
     }
   ],
   "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["https://mail.google.com/*"],
+  "host_permissions": ["https://mail.google.com/*",
+  "https://extensionclaude-6wygy6jcn-anishgupta160206-gmailcoms-projects.vercel.app/*"],
   "icons": {
     "48": "icon.png",
     "128": "icon.png"
+    
   }
 }
