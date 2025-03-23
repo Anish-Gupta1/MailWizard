@@ -13,7 +13,7 @@ export async function generateclaudeJSON(promptInput: string) {
   try {
     console.log("Sending request to proxy server..."); 
 
-    const response = await axios.post('localhost:3000/api/generate', {
+    const response = await axios.post('http://localhost:3000/api/generate', {
       prompt: promptInput,
       apiKey: apiKey
     }, {
